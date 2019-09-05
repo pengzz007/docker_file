@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    rundeck:
+        image: 172.24.39.35:5000/oa/rundeck3.1
+        environment:
+            RUNDECK_DATABASE_DRIVER: com.mysql.jdbc.Driver
+            RUNDECK_DATABASE_USERNAME: test
+            RUNDECK_DATABASE_PASSWORD: ceshi
+            RUNDECK_DATABASE_URL: jdbc:mysql://192.168.0.231/rundeck_test?autoReconnect=true&useSSL=false
+            RUNDECK_GRAILS_URL: http://192.168.8.20:5440
+        ports:
+          - 5440:4440
+        volumes:
+          - /home/docker_mount/rundeck_data:/home/rundeck/server/data
+        tty: true
