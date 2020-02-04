@@ -44,6 +44,6 @@ services:
       - elasticsearch
 
 networks:
-
   elk:
-    driver: bridge
+    external:
+      name: centos-php56_it_network
