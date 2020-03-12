@@ -1,0 +1,21 @@
+version: '2'
+services:
+ 
+  #rabbitmq container
+  rabbitmq:
+    #use docker images
+    image: docker-hub.shiqutech.com:5000/oa/management:3.8.3
+    #ports setting
+    ports:
+      - 15672:15672
+      - 5672:5672
+    restart: always
+    #volumes setting
+    volumes:
+      - /home/docker_mount/lib_rrabbitmq:/var/lib/rabbitmq
+    networks:
+      - rabbitmq
+networks:
+  rabbitmq:
+    external:
+      name: centos-php56_it_network
